@@ -1,0 +1,16 @@
+{% extends "ArchForms/index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<form method="get" action="/reports/weekly">
+
+{{ getform.as_p }}
+
+<p><input type="submit" value="Submit" /></p>
+
+</form>
+
+
+{% endblock %}

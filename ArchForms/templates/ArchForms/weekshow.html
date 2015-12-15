@@ -1,0 +1,35 @@
+{% extends "ArchForms/index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+{% for a in article %}
+
+<div class="col-md-6">
+
+    <div class="panel">
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item"><h4>Date</h4><p>{{a.date}}</p></li>
+                <li class="list-group-item"><h4>Service User</h4> <p>{{a.service_user}}</p></li>
+                <li class="list-group-item"><h4>Morning Log</h4> <p>{{a.morning}}</p></li>
+                <li class="list-group-item"><h4>Evening Log</h4> <p>{{a.evening}}</p></li>
+                <li class="list-group-item"><h4>Week Number</h4> <p>{{a.week_number}}</p></li>
+                <li class="list-group-item"><h4>Hours Of Interaction</h4> <span class="HoursToday">{{a.daily_total_one_to_one_support_hours_provided}}</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static "ArchForms/js/weeksum.js" %}"></script>
+<div class="col-md-12">
+    <div class="panel">
+        <div class="panel-body">
+            <p class="text-center"> Total Hours <span class="total"></span></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

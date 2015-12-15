@@ -1,0 +1,24 @@
+{% extends "ArchForms/index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+{% for a in article %}
+<tr>
+    <p><td><h4>Date</h4></td></p>
+    <p><td>{{a.date}}</td></p>
+    <p><td><h4>Content Of One To One Support</h4></td></p>
+    <p><td>{{a.content_of_one_to_one_support}}</td></td></p>
+    <p><td><h4>Evaluation & Comments</h4></td></p>
+    <p><td>{{a.evaluation_and_comments}}</td></p>
+    <p><td><h4>Date Submitted</h4></td></p>
+    <p><td>{{a.date_and_time_signed}}</td></td></p>
+</tr>
+<br>
+<br>
+
+{% endfor %}
+
+
+{% endblock %}

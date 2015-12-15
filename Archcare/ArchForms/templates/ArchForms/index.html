@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- <script type="text/javascript" type="http://code.jquery.com/jquery-2.1.4.js"></script> -->
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static "ArchForms/js/jquery-1.11.3.min.js" %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="{% static "ArchForms/js/bootstrap.js" %}"></script>
+    <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="{% static "ArchForms/css/bootstrap.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "ArchForms/css/bootstrap-theme.css" %}" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <link href="{% static "ArchForms/css/main.css" %}" rel="stylesheet" type="text/css">
+    <title>{% block title %}{{title}}{% endblock %}</title>
+</head>
+<body>
+<div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span>{{brand}}</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <!-- navbar solution: http://stackoverflow.com/questions/7665514/django-highlight-navigation-based-on-current-page -->
+            <ul class="nav navbar-nav navbar-right">
+                <li {% if request.path == '/' %} class="active"{% endif %}>
+                  <a href="/">Home</a>
+                </li>
+                <li {% if request.path == '/forms/daily' %} class="active"{% endif %}>
+                  <a href="/forms/daily">Daily Report</a>
+                </li>
+                <li {% if request.path == '/forms/weekly' %} class="active"{% endif %}>
+                  <a href="/forms/weekly">Weekly Report</a>
+                </li>
+                <li {% if request.path == '/forms/user' %} class="active"{% endif %}>
+                  <a href="/forms/user">Add Service User</a>
+                </li>
+                <li {% if request.path == '/forms/staff' %} class="active"{% endif %}>
+                  <a href="/forms/staff">Add Staff Member</a>
+                </li>
+                <li {% if request.path == '/requests/daily' %} class="active"{% endif %}>
+                  <a href="/requests/daily">Show Daily Reports</a>
+                </li>
+                <li {% if request.path == '/requests/weekly' %} class="active"{% endif %}>
+                  <a href="/requests/weekly">Show Weekly Reports</a>
+                </li>
+
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            {% block content %}
+                <p>Welcome to the archcare intranet and logging portal</p>
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+{% if form %}
+    <script type="text/javascript" src="{% static "ArchForms/js/forms.js" %}"></script>
+{% endif %}
+</body>
+</html>

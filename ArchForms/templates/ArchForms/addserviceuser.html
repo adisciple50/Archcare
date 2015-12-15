@@ -1,0 +1,16 @@
+{% extends "ArchForms/index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+{% if form%}
+    <form action="/forms/user" method="post"> {% csrf_token %}
+{% endif %}
+{{ form.as_p }}
+{% if form %}
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+{% endif %}
+
+{% endblock %}
